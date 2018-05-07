@@ -32,7 +32,7 @@ end
 
 %set the thresholding value to the perfect version, change one to
 %badTemplates for imperfect values (still buggy)
-thresholdValues = threshold(template, template);
+thresholdValues = threshold(badTemplates, template);
 
 for i = 1:28
     difference (i,:,:) = 255;
