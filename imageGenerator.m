@@ -1,7 +1,7 @@
 %procedurally generate 10 images with digits scattered randomly througout
 image = zeros(700,700);
 valid = zeros(700,700);
-template = zeros(30,30,10);
+template = zeros(30,30,12);
 tempvalid = 0;
 
 s1 = '0';
@@ -12,9 +12,11 @@ for i = 0:9
     template(:,:,i+1) = imread(s3);
     s1 = s1+1;
 end
+template(:,:,11) = imread('square.tif');
+template(:,:,12) = imread('triangle.tif');
 
 s1 = '0';
-s2 = 'test_10_rand_';
+s2 = 'test_10_rand_shapes_noise_';
 
 for i = 1:10
     
@@ -38,7 +40,7 @@ for i = 1:10
             end
             
             if (randi(15000) == 15000 && tempvalid == 0)
-                z1 = randi(10);
+                z1 = randi(12);
                 for x1 = 1:28
                     for y1 = 1:28
                         valid(x1+x-1,y1+y-1) = 1;
@@ -49,9 +51,24 @@ for i = 1:10
             
         end
     end
+    
+    for x = 15: 685
+        for y = 15:685
+            if (randi(70) == 15)
+                z1 = randi(2);
+                if (z1 == 1)
+                    image(x,y) =255;
+                else
+                    image(x,y) =0;
+                end
+            end
+            
+        end
+    end
+    
     image(701:size(image,1),:)=[];
     image(:,701:size(image,2))=[];
-    imshow(image)
+ 
     s3 = strcat(s2,s1,'.tif');
     imwrite(image, s3);
     s1 = s1+1;
