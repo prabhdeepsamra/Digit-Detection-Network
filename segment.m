@@ -6,7 +6,8 @@ valid = zeros(700,700);
 for i = 1:700
     valid (i,:) = 255;
 end
-
+%loop through each region and check if there is something in them
+%if there is, add the coordinates to a vector for mask.m
 for x = 1:30: 671
     for y = 1:30:671
         breakloop = 0;

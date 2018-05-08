@@ -1,4 +1,5 @@
-% 
+% file for editing TIF images
+
 % image = imread('triangle.tif');
 % output = zeros(30,30);
 % 
