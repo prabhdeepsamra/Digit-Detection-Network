@@ -19,10 +19,8 @@ for i = 1:700
     output (i,:) = 256;
 end
 
-
-%get the input image
+%get the input image. this can be changed.
 image = imread('test_10_rand_shapes_noise_0.tif');
-
 
 %mask the input image
 masked = mask(image);
@@ -42,7 +40,7 @@ for i = 0:9
 end
 
 %set the thresholding value to the perfect version, change one to
-%badTemplates for imperfect values (still buggy)
+%badTemplates for imperfect values (still buggy).this can be changed.
 thresholdValues = threshold(template, template);
 
 

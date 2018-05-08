@@ -13,6 +13,7 @@ for i = 0:9
     template(:,:,i+1) = imread(s3);
     s1 = s1+1;
 end
+%shape templates. This can be commented out
 template(:,:,11) = imread('square.tif');
 template(:,:,12) = imread('triangle.tif');
 
@@ -57,7 +58,7 @@ for i = 1:10
         end
     end
     
-    %add noise
+    %add noise. this section can be commented out
     for x = 15: 685
         for y = 15:685
             if (randi(70) == 15)
